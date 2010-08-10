@@ -24,3 +24,4 @@ Library
                , explicit-iomodes-text >= 0.1 && < 0.2
                , safer-file-handles    >= 0.6 && < 0.7
   exposed-modules: Data.Text.IO.SaferFileHandles
+                   Data.Text.Lazy.IO.SaferFileHandles
