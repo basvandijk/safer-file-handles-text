@@ -1,5 +1,5 @@
 name:          safer-file-handles-text
-version:       0.1
+version:       0.1.0.1
 cabal-version: >=1.6
 build-type:    Custom
 license:       BSD3
@@ -18,10 +18,10 @@ source-repository head
 
 Library
   GHC-Options: -Wall
-  build-depends: text                  >= 0.7 && < 0.8
-               , regions               >= 0.6 && < 0.7
+  build-depends: text                  >= 0.7 && < 0.9
+               , regions               >= 0.6 && < 0.8
                , transformers          >= 0.2 && < 0.3
                , explicit-iomodes-text >= 0.1 && < 0.2
-               , safer-file-handles    >= 0.6 && < 0.7
+               , safer-file-handles    >= 0.6 && < 0.8
   exposed-modules: Data.Text.IO.SaferFileHandles
                    Data.Text.Lazy.IO.SaferFileHandles
