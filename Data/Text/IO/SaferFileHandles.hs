@@ -50,9 +50,7 @@ import qualified Data.Text.IO.ExplicitIOModes as E ( hGetLine
 import Control.Monad.Trans.Region ( AncestorRegion )
 
 -- from safer-file-handles:
-import System.IO.SaferFileHandles ( RegionalFileHandle
-                                  , ReadModes, WriteModes
-                                  )
+import System.IO.SaferFileHandles        ( FileHandle, ReadModes, WriteModes )
 import System.IO.SaferFileHandles.Unsafe ( wrap, wrap2 )
 
 
@@ -61,24 +59,32 @@ import System.IO.SaferFileHandles.Unsafe ( wrap, wrap2 )
 -------------------------------------------------------------------------------
 
 -- | Wraps: @Data.Text.IO.'T.hGetLine'@.
-hGetLine ∷ (pr `AncestorRegion` cr, MonadIO cr, ReadModes ioMode)
-         ⇒ RegionalFileHandle ioMode pr → cr Text
+hGetLine ∷ ( FileHandle handle, ReadModes ioMode
+           , pr `AncestorRegion` cr, MonadIO cr
+           )
+         ⇒ handle ioMode pr → cr Text
 hGetLine = wrap E.hGetLine
 
 -- | Wraps: @Data.Text.IO.'T.hGetContents'@.
-hGetContents ∷ (pr `AncestorRegion` cr, MonadIO cr, ReadModes ioMode)
-             ⇒ RegionalFileHandle ioMode pr → cr Text
+hGetContents ∷ ( FileHandle handle, ReadModes ioMode
+               , pr `AncestorRegion` cr, MonadIO cr
+               )
+             ⇒ handle ioMode pr → cr Text
 hGetContents = wrap E.hGetContents
 
 
 -- | Wraps: @Data.Text.IO.'T.hPutStr'@.
-hPutStr ∷ (pr `AncestorRegion` cr, MonadIO cr, WriteModes ioMode)
-        ⇒ RegionalFileHandle ioMode pr → Text → cr ()
+hPutStr ∷ ( FileHandle handle, WriteModes ioMode
+          , pr `AncestorRegion` cr, MonadIO cr
+          )
+        ⇒ handle ioMode pr → Text → cr ()
 hPutStr = wrap2 E.hPutStr
 
 -- | Wraps: @Data.Text.IO.'T.hPutStrLn'@.
-hPutStrLn ∷ (pr `AncestorRegion` cr, MonadIO cr, WriteModes ioMode)
-          ⇒ RegionalFileHandle ioMode pr → Text → cr ()
+hPutStrLn ∷ ( FileHandle handle, WriteModes ioMode
+            , pr `AncestorRegion` cr, MonadIO cr
+            )
+          ⇒ handle ioMode pr → Text → cr ()
 hPutStrLn = wrap2 E.hPutStrLn
 
 
