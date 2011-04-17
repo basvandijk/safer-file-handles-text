@@ -1,5 +1,5 @@
 name:          safer-file-handles-text
-version:       0.2
+version:       0.2.0.1
 cabal-version: >=1.6
 build-type:    Custom
 license:       BSD3
@@ -13,8 +13,8 @@ synopsis:      Extends safer-file-handles with Text operations
 description:   Extends @safer-file-handles@ with @Text@ operations
 
 source-repository head
-  Type:     darcs
-  Location: http://code.haskell.org/~basvandijk/code/safer-file-handles-text
+  Type:     git
+  Location: git://github.com/basvandijk/safer-file-handles-text.git
 
 Library
   GHC-Options: -Wall
