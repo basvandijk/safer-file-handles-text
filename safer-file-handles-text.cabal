@@ -20,7 +20,7 @@ source-repository head
 Library
   GHC-Options: -Wall
   build-depends: text                  >= 0.7  && < 0.12
-               , regions               >= 0.9  && < 0.10
+               , regions               >= 0.9  && < 0.11
                , transformers          >= 0.2  && < 0.3
                , explicit-iomodes-text >= 0.1  && < 0.2
                , safer-file-handles    >= 0.10 && < 0.11
